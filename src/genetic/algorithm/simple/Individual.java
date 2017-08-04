@@ -1,4 +1,4 @@
-package simple.genetic.algorithm;
+package genetic.algorithm.simple;
 
 /**
  * Created by root on 04/08/17.
