@@ -4,6 +4,8 @@ import javax.swing.*;
 
 public class TSP_GA {
 
+    //http://www.theprojectspot.com/tutorial-post/applying-a-genetic-algorithm-to-the-travelling-salesman-problem/5
+
     public static void main(String[] args) throws Exception {
 
         PlotRoute plotRoute = new PlotRoute();
@@ -15,7 +17,7 @@ public class TSP_GA {
         frame.setVisible(true);
 
         // Create and add our cities
-        City city = new City(60, 200);
+        /*City city = new City(60, 200);
         TourManager.addCity(city);
         City city2 = new City(180, 200);
         TourManager.addCity(city2);
@@ -54,23 +56,28 @@ public class TSP_GA {
         City city19 = new City(60, 20);
         TourManager.addCity(city19);
         City city20 = new City(160, 20);
-        TourManager.addCity(city20);
+        TourManager.addCity(city20);*/
+        for(int i = 0; i < 200; i++) {
+            TourManager.addCity(new City((int) (Math.random() * 1200),  (int) (Math.random() * 700)));
+        }
 
         // Initialize population
         Population pop = new Population(50, true);
-        System.out.println("Initial distance: " + pop.getFittest().getDistance());
+        int min = pop.getFittest().getDistance();
 
         // Evolve population for generations
         pop = GA.evolvePopulation(pop);
-        for (int i = 0; i < 500; i++) {
-            System.out.println("Epoch: " + i + "\tDistance: " + pop.getFittest().getDistance());
-            plotRoute.drawTour(pop.getFittest());
-            Thread.sleep(25);
+        for (int i = 0; i < 1000000; i++) {
+            if(i % 1000 == 0) {
+                System.out.println("Epoch: " + i + "\tDistance: " + pop.getFittest().getDistance());
+                plotRoute.drawTour(pop.getFittest());
+                Thread.sleep(50);
+            }
             pop = GA.evolvePopulation(pop);
         }
 
         // Print final results
-        System.out.println("Finished");
+        System.out.println("Initial distance: " + min);
         System.out.println("Final distance: " + pop.getFittest().getDistance());
         System.out.println("Solution:");
         System.out.println(pop.getFittest());

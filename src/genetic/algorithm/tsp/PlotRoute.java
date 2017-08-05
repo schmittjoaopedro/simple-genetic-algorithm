@@ -16,7 +16,7 @@ public class PlotRoute extends JPanel {
 
     public PlotRoute() {
         setBackground(Color.WHITE);
-        setPreferredSize(new Dimension(220, 220));
+        setPreferredSize(new Dimension(1200, 700));
     }
 
     public void drawTour(Tour tour) {
@@ -77,7 +77,7 @@ public class PlotRoute extends JPanel {
 
         public void draw(Graphics g) {
             Graphics2D g2d = (Graphics2D) g;
-            Line2D line = new Line2D.Float(this.x1, this.y1, this.x2, this.y2);
+            Line2D line = new Line2D.Float(this.x1 + 5, this.y1 + 5, this.x2 + 5, this.y2 + 5);
             g2d.draw(line);
         }
 

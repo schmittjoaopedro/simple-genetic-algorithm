@@ -6,7 +6,7 @@ package genetic.algorithm.tsp;
 public class GA {
 
     /* GA parameters */
-    private static final double mutationRate = 0.1;
+    private static final double mutationRate = 0.01;
     private static final int tournamentSize = 5;
     private static final boolean elitism = true;
 
