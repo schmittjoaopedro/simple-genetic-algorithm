@@ -57,7 +57,7 @@ public class TSP_GA {
         TourManager.addCity(city19);
         City city20 = new City(160, 20);
         TourManager.addCity(city20);*/
-        for(int i = 0; i < 200; i++) {
+        for(int i = 0; i < 20; i++) {
             TourManager.addCity(new City((int) (Math.random() * 1200),  (int) (Math.random() * 700)));
         }
 
@@ -67,11 +67,11 @@ public class TSP_GA {
 
         // Evolve population for generations
         pop = GA.evolvePopulation(pop);
-        for (int i = 0; i < 1000000; i++) {
-            if(i % 1000 == 0) {
+        for (int i = 0; i < 200; i++) {
+            if(i % 10 == 0) {
                 System.out.println("Epoch: " + i + "\tDistance: " + pop.getFittest().getDistance());
                 plotRoute.drawTour(pop.getFittest());
-                Thread.sleep(50);
+                Thread.sleep(100);
             }
             pop = GA.evolvePopulation(pop);
         }
