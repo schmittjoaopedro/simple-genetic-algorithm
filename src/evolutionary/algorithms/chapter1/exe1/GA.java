@@ -14,7 +14,7 @@ public class GA {
         Population current = new Population(popSize, true);
         System.out.println("Init: " + getFittest(current).getFitness());
         Individual fittest = getFittest(current);
-        for(int i = 0; i < maxGen; i++) {
+        for(int i = 0; i <= maxGen; i++) {
             Population mating = rouletteSelection(current);
             Population newPopulation = crossover(mating);
             mutating(newPopulation);

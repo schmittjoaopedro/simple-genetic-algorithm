@@ -10,7 +10,7 @@ public class Individual {
         chromosome = new byte[size];
         if(initialize) {
             for(int i = 0; i < size; i++) {
-                setGene(i, (byte) (Math.random() > 0.95 ? 1 : 0));
+                setGene(i, (byte) (Math.random() > 0.98 ? 1 : 0));
             }
         }
     }
