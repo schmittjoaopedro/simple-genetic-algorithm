@@ -1,5 +1,6 @@
 package evolutionary.algorithms.chapter2.exe3_4;
 
+import java.util.Locale;
 import java.util.Set;
 
 /**
@@ -7,37 +8,45 @@ import java.util.Set;
  */
 public class GA {
 
+    private static double pM = 0.015;
+
     public static void main(String[] args) {
 
         for (int t = 0; t < 100; t++) {
-            double[][] population = new double[10][3]; //10 individual by 3 variables
+            double[][] population = new double[50][3]; //10 individual by 3 variables
             randomInit(population);
             double fittest = getFittest(population);
-            for(int i = 0; i < 5000; i++) {
+            for(int i = 0; i < 1000; i++) {
                 if(getFittest(population) < fittest) {
                     fittest = getFittest(population);
                     //System.out.printf("%.15f\n", getFittest(population));
                 }
-                double[] p1 = selectIndividual(population);
-                double[] p2 = selectIndividual(population);
-                double[] c1 = new double[p1.length];
-                double[] c2 = new double[p2.length];
-                //SBXCrossover.crossover(p1, p2, c1, c2);
-                UNDXCrossover.crossover(p1, p2, c1, c2);
-                population[(int) Math.random() * population.length] = c1;
-                population[(int) Math.random() * population.length] = c2;
+                double[][] newPopulation = new double[population.length][population[0].length];
+                int popOffset = population.length / 2;
+                for(int p = 0; p < popOffset; p++) {
+                    double[] p1 = selectIndividual(population);
+                    double[] p2 = selectIndividual(population);
+                    double[] c1 = new double[p1.length];
+                    double[] c2 = new double[p2.length];
+                    //SBXCrossover.crossover(p1, p2, c1, c2);
+                    UNDXCrossover.crossover(p1, p2, c1, c2);
+                    newPopulation[p] = c1;
+                    newPopulation[popOffset + p] = c2;
+                }
+                mutate(newPopulation);
+                population = newPopulation;
             }
-            System.out.printf("%.15f\n", fittest);
+            System.out.format(Locale.US, "%.15f,\n", fittest);
         }
     }
 
     /**
      *
-     * Interactions         |       SBX     |      UNDX         |
-     *                      | mean   | sd   |   mean   | sd     |
-     * 200                  | 0.12   | 0.56 | 8.60042  | 2.70   |
-     * 500                  | 0.0    | 0.0  | 6.79165  | 1.97   |
-     * 5000                 | 0.0    | 0.0  | 4.52933  | 1.53   |
+     * Interactions         |          SBX          |          UNDX         |
+     *                      | mean      | sd        | mean      | sd        |
+     * 100                  | 0.6375408 | 0.9104150 | 1.3188870 | 1.2244720 |
+     * 500                  | 0.0553351 | 0.0532705 | 0.1134227 | 0.1355401 |
+     * 1000                 | 0.0252303 | 0.0249075 | 0.0732929 | 0.0628975 |
      */
 
     public static double[] selectIndividual(double[][] population) {
@@ -64,6 +73,16 @@ public class GA {
             }
         }
         return population[(int) Math.random()];
+    }
+
+    public static void mutate(double[][] population) {
+        for(int i = 0; i < population.length; i++) {
+            for (int j = 0; j < population[i].length; j++) {
+                if(Math.random() < pM) {
+                    population[i][j] = Settings.lowerBound + Math.random() * (Settings.upperBound - Settings.lowerBound);
+                }
+            }
+        }
     }
 
     public static void randomInit(double[][] population) {

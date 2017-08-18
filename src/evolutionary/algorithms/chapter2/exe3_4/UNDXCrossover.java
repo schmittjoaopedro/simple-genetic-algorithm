@@ -6,7 +6,38 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * Created by root on 17/08/17.
+ * Unimodal Normal Distribution Crossover
+ *
+ * Ono propos um crossover de distribuicao normal unimodal com abilidade de tratar variáveis não separáveis
+ * e a preferencia de centróide. Ele quize que as variáveis tivessem uma centróide próxima à dos pais. Ele
+ * introduziu a variação direcional ortogonal para a direção dos dois pais.
+ *
+ *
+ *          p_3
+ *           |
+ *           |          0
+ *         D |        ,'|
+ *           |      ,'  |
+ * p_1 ---------k--------- p_2          (fig 3.7)
+ *
+ *
+ * Nós precisamos de 3 pais, p_1, p_2 e p_3 para gerar um descendente. Primeiro a centróide de p_1 e p_2, onde
+ * k é calculado com k = (p_1 + p_2) / 2. Então o vetor d é calculado = p_2 - p_1 que é o vetor que inicia em p_1 e termina
+ * em p_2. D é ilustra a distância do ponto p_3 até o vetor d. Usando d e qualquer outro n-1 vetor independente no espaco R^n,
+ * nós podemos gerar uma unidade orthogonal de n bases Gram-Schmidt ortonormalization.
+ * Nós usamos e_1,...,e_n-1 para ilustrar as outras n-1 unidades bases ortogonais por trás de d/|d|. Então podemos gerar os
+ * descendentes pela seguinte equação:
+ *
+ * o = k + ξ*d + D*∑(η_i*e_i)                               (eq 3.9)
+ *
+ * onde η é dado por N(0,σn^2) e ξ por N(0,σe^2). Da equação 3.9 nós podemos ver que os descendentes iniciam na centróide dos pais p_1 e p_2,
+ * com k extendendo na direção do vetor d e tamanho ξ, e então extendo para outra direção ortogonal de d. Por causa que ξ e η são
+ * média zero então o descendente fica próximo a centróide de p_1 e p_2 com alta probabilidade. As duas primeiras partes da equação 3.9
+ * são da primeira componente de busca, e a terceira parte é a componente de busca secundária. Geralmente isso irá gerar um descendente
+ * dentro de uma elipsoide onde o eixo principal é d. Também é sugerido que σe = 0.5 e σn = 0.35 / sqrt(n).
+ *
+ * Projeção ortogonal: http://www.somatematica.com.br/emedio/espacial/espacial5.php
+ * Gram-Schmidt ortonormalização: https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process
  */
 public class UNDXCrossover {
 
