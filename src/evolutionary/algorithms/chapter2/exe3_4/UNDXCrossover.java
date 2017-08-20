@@ -1,5 +1,7 @@
 package evolutionary.algorithms.chapter2.exe3_4;
 
+import evolutionary.algorithms.chapter2.Settings;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

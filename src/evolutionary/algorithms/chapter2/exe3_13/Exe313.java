@@ -3,8 +3,11 @@ package evolutionary.algorithms.chapter2.exe3_13;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 public class Exe313 {
+
+    private static Random random = new Random();
 
     private static int maxSamples = 100;
 
@@ -36,14 +39,14 @@ public class Exe313 {
 
     public static double cControl = 0.9;
 
-    private static int maxGen = 100;
+    private static int maxGen = 1000;
     /**
      *
      * Interactions |         NoControl     |      Determinist      |        Adaptive       |       SelfControl     |
      *              | mean      | sd        | mean      | sd        | mean      | sd        | mean      | sd        |
-     * 100          | 0.3170909 | 0.6232028 | 0.2106566 | 0.4082318 | 0.1265210 | 0.2734458 | 0.0000000 | 0.0000000 |
-     * 500          | 0.0000189 | 0.0000200 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 |
-     * 1000         | 0.0000063 | 0.0000076 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 |
+     * 100          | 0.3170909 | 0.6232028 | 0.1868340 | 0.3404953 | 0.1528647 | 0.3234556 | 0.0000000 | 0.0000000 |
+     * 500          | 0.0000189 | 0.0000200 | 0.0000265 | 0.0000305 | 0.0459673 | 0.0384714 | 0.0000000 | 0.0000000 |
+     * 1000         | 0.0000063 | 0.0000076 | 0.0000049 | 0.0000077 | 0.0124274 | 0.0141737 | 0.0000000 | 0.0000000 |
      */
 
     public static void main(String[] args) {
@@ -79,7 +82,6 @@ public class Exe313 {
             results[t] = fittest;
             System.out.format(Locale.US, "Fittest %.15f\n", fittest);
         }
-
         System.out.format(Locale.US, "Mean/Std %.7f | %.7f\n", mean(results), std(results));
     }
 
