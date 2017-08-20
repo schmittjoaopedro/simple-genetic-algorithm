@@ -1,5 +1,6 @@
 package evolutionary.algorithms.chapter2.exe3_5;
 
+import evolutionary.algorithms.chapter2.Settings;
 import evolutionary.algorithms.chapter2.exe3_4.SBXCrossover;
 
 import java.util.Locale;

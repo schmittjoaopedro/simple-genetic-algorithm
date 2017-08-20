@@ -1,5 +1,7 @@
 package evolutionary.algorithms.chapter2.exe3_5;
 
+import evolutionary.algorithms.chapter2.Settings;
+
 /**
  * Created by root on 19/08/17.
  */

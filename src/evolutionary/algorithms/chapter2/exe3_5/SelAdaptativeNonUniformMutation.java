@@ -1,5 +1,7 @@
 package evolutionary.algorithms.chapter2.exe3_5;
 
+import evolutionary.algorithms.chapter2.Settings;
+
 /**
  * Com base nos aspectos dos algoritmos de cozimento em EA, podemos ainda
  * modificar o processo de conzimento com base em um processo não uniforme

@@ -1,4 +1,4 @@
-package evolutionary.algorithms.chapter2.exe3_5;
+package evolutionary.algorithms.chapter2;
 
 /**
  * Created by root on 17/08/17.
@@ -15,9 +15,9 @@ public class Settings {
      * f(x):    -20*exp(-0.2*sqrt((1/n)*∑x^2))-exp((1/n)*∑cos(2*PI*x))+20+e
      */
 
-    public static final double lowerBound = -20;
+    public static double lowerBound = -20;
 
-    public static final double upperBound = 30;
+    public static double upperBound = 30;
 
     public static double getFitness(double[] individual) {
         double n = (double) individual.length;

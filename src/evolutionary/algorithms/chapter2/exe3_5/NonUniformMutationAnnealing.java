@@ -1,6 +1,6 @@
 package evolutionary.algorithms.chapter2.exe3_5;
 
-import java.util.Locale;
+import evolutionary.algorithms.chapter2.Settings;
 
 /**
  * Non Uniform Mutation
