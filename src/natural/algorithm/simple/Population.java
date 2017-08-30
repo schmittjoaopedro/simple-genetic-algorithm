@@ -1,4 +1,4 @@
-package genetic.algorithm.simple;
+package natural.algorithm.simple;
 
 public class Population {
 

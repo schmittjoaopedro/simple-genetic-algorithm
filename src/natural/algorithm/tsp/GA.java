@@ -1,4 +1,4 @@
-package genetic.algorithm.tsp;
+package natural.algorithm.tsp;
 
 /**
  * Created by root on 04/08/17.

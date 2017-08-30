@@ -1,6 +1,4 @@
-package genetic.algorithm.annealing;
-
-import genetic.algorithm.tsp.*;
+package natural.algorithm.annealing;
 
 import javax.swing.*;
 

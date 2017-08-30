@@ -1,13 +1,11 @@
-package genetic.algorithm.tsp;
+package natural.algorithm.tsp;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
-import java.awt.geom.GeneralPath;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class PlotRoute extends JPanel {
 

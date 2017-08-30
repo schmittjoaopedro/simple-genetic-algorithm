@@ -1,4 +1,4 @@
-package genetic.algorithm.tsp;
+package natural.algorithm.tsp;
 
 public class City {
 

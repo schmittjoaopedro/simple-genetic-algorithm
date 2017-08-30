@@ -1,4 +1,4 @@
-package genetic.algorithm.annealing;
+package natural.algorithm.tsp;
 
 import java.util.ArrayList;
 

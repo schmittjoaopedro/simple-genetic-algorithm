@@ -1,4 +1,4 @@
-package genetic.algorithm.simple;
+package natural.algorithm.simple;
 
 //http://www.theprojectspot.com/tutorial-post/creating-a-genetic-algorithm-for-beginners/3
 public class GA {

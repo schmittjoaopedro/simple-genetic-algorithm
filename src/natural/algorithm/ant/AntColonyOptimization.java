@@ -1,6 +1,4 @@
-package genetic.algorithm.ant;
-
-import com.sun.org.apache.xalan.internal.xsltc.runtime.InternalRuntimeError;
+package natural.algorithm.ant;
 
 import java.util.*;
 import java.util.stream.IntStream;

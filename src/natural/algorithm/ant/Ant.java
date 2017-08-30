@@ -1,4 +1,4 @@
-package genetic.algorithm.ant;
+package natural.algorithm.ant;
 
 public class Ant {
 
